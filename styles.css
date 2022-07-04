@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+:root {
+    --white0: #FFFFFF;
+    --white1: #fafafa;
+    --white3: #E3E4F1;
+    --grey0:  #D1D2DA;
+    --grey1:  #C8CBE7;
+    --grey2:  #9495A5;
+    --grey3:  #767992;
+    --blue1:  #3A7CFD;
+    --blue2:  #5B5E7E;
+    --blue2:  #494C6B;
+    --blue3:  #393A4B;
+    --blue4:  #4D5067;
+    --blue5:  #25273D;
+    --blue6:  #171823;
+    --light-gradient: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    --dark-gradient: linear-gradient(135deg, #3710BD 0%, #A42395 100%);
+    --light-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+    --dark-box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+}
+/* 
+***************************************
+        THEMES
+***************************************
+*/
+.light {
+    --bg-color: var(--white1);
+    --bg-img: url("./images/bg-desktop-light.jpg");
+    --box-shadow: var(--light-box-shadow);
+    --border-grid: var(--white3);
+    --main-text-color: var(--blue3);
+    --sub-text-color: var(--grey2);
+    --unchecked-icon: var(--white3);
+}
+
+.dark {
+    --bg-color: var(--blue6);
+    --bg-img: url("./images/bg-desktop-dark.jpg");
+    --box-shadow: var(--dark-box-shadow);
+    --border-grid: var(--blue3);
+    --main-text-color: var(--grey1);
+    --sub-text-color: var(--blue2);
+    --unchecked-icon: var(--white3);
+}
+
+
+body {
+    background-image: var(--bg-img);
+    background-color: var(--bg-color);
+    background-repeat: no-repeat;
+    margin: 1.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+
+/* 
+***************************************
+        TO DO CONTAINER
+***************************************
+*/
+.container {
+    max-width: 541px;
+    margin: auto;
+    margin-top: 4.375rem;
+}
+
+
+
+/* 
+**********************************
+        TO DO HEADER
+********************************** 
+*/
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    min-height: 3rem;
+}
+
+header div {
+    display: flex;
+}
+
+header div:hover {
+    display: flex;
+}
+
+header img {
+    margin: auto;
+    cursor: pointer;
+}
+
+header h1 {
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--white0);
+    letter-spacing: 15px;
+    font-size: 2.5rem;
+} 
+
+
+
+/* 
+*******************************
+        ADD NEW TODO
+*******************************
+*/
+.new-todo_container {
+    display: flex;
+}
+
+.new-todo_container input {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    min-height: 4rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.125;
+    padding-left: 4.5rem;
+    box-shadow: var(--box-shadow)
+}
+
+.new-todo_container input:focus {
+    outline: 0;
+    caret-color: var(--blue1);
+}
+
+
+
+/* 
+**************************
+        TO DO LIST
+**************************
+*/
+.todo-list_container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: repeat(auto, 4rem);
+    background: var(--white0);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 5px;
+}
+
+.todo-elem {
+    color: var(--blue2);
+    border-bottom: 1px solid var(--border-grid);
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.todo-elem span {
+    margin-top: 0;
+}
+
+.todo-elem p {
+    font-weight: 400;
+    font-size: 1.125rem;
+    color: var(--text-color);
+    padding-left: 4.5rem;
+}
+
+
+
+/* 
+***************************************
+        TO DO LIST INFOS
+***************************************
+*/
+.todos-info {
+    min-height: 3.125rem;
+    display: flex;
+    justify-content: space-between;
+    margin: auto 1.5rem;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--sub-text-color);
+    font-weight: 700;
+}
+
+
+/* 
+***************************************
+        TO DO LIST DIRECTIVES
+***************************************
+*/
+.todo-directives_container p {
+    font-size: 0.875rem;
+    text-align: center;
+    color: var(--sub-text-color);
+}
+
+
+
+/* 
+***************************************
+        ICONS
+***************************************
+*/
+.unchecked-icon {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1.5rem;
+    margin-top: 1.25rem;
+    border: 1px solid var(--unchecked-icon);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.unchecked-icon:hover {
+    border-color: var(--gradient)
+}
