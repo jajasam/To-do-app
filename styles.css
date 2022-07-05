@@ -9,10 +9,12 @@
     --white0: #FFFFFF;
     --white1: #fafafa;
     --white3: #E3E4F1;
+
     --grey0:  #D1D2DA;
     --grey1:  #C8CBE7;
     --grey2:  #9495A5;
     --grey3:  #767992;
+
     --blue1:  #3A7CFD;
     --blue2:  #5B5E7E;
     --blue2:  #494C6B;
@@ -20,8 +22,10 @@
     --blue4:  #4D5067;
     --blue5:  #25273D;
     --blue6:  #171823;
+
     --light-gradient: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
     --dark-gradient: linear-gradient(135deg, #3710BD 0%, #A42395 100%);
+
     --light-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
     --dark-box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
 }
@@ -38,6 +42,7 @@
     --main-text-color: var(--blue3);
     --sub-text-color: var(--grey2);
     --unchecked-icon: var(--white3);
+    transition: all 0.7s ease-in;
 }
 
 .dark {
@@ -48,6 +53,7 @@
     --main-text-color: var(--grey1);
     --sub-text-color: var(--blue2);
     --unchecked-icon: var(--white3);
+    transition: all 0.7s ease-out;
 }
 
 
@@ -59,6 +65,8 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
 }
+
+
 
 /* 
 ***************************************
@@ -96,6 +104,10 @@ header div:hover {
 header img {
     margin: auto;
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 header h1 {
@@ -206,17 +218,28 @@ header h1 {
         ICONS
 ***************************************
 */
-.unchecked-icon {
+.icon {
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
     margin-left: 1.5rem;
     margin-top: 1.25rem;
-    border: 1px solid var(--unchecked-icon);
     border-radius: 50%;
-    cursor: pointer;
+}
+
+.unchecked-icon {
+    border: 1px solid var(--unchecked-icon);
 }
 
 .unchecked-icon:hover {
     border-color: var(--gradient)
+}
+
+.checked-icon {
+    background-repeat: no-repeat;
+    background-color: var(--light-gradient);
+}
+
+.clear-icon {
+    background-image: url(./images/icon-cross.svg);
 }
