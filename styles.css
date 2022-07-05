@@ -243,3 +243,7 @@ header h1 {
 .clear-icon {
     background-image: url(./images/icon-cross.svg);
 }
+
+.dragged-on {
+    background-color: var(--blue6);
+}
