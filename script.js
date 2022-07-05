@@ -1,11 +1,38 @@
-
 const themeIcons = document.querySelectorAll(".theme-icon");
 const body = document.querySelector("body");
 const input = document.querySelector("input");
 const listContainer = document.querySelector('.todo-list');
+const numItemsEl = document.getElementById("num-items");
+const clearListEl = document.getElementById("clear-list");
+const removeItem = document.querySelectorAll("remove-icon")
 
 class TodoList {
-    list = [];
+    list = [
+        {
+            thingToDo: "Complete online JavaScript course",
+            isCompleted: true
+        },
+        {
+            thingToDo: "Jog around the park 3x",
+            isCompleted: false
+        },
+        {
+            thingToDo: "10 minutes meditation",
+            isCompleted: false
+        },
+        {
+            thingToDo: "Read for 1 hour",
+            isCompleted: false
+        },
+        {
+            thingToDo: "Pick up groceries",
+            isCompleted: false
+        },
+        {
+            thingToDo: "Complete Todo App on Frontend Mentor",
+            isCompleted: false
+        }
+    ];
     draggedItemIndex;
 
     toggleTheme = function(e) {
@@ -16,12 +43,12 @@ class TodoList {
 
     addItem = function(thingToDo, isCompleted) {
         const newItem = {thingToDo, isCompleted}
-        this.list.push(newItem);
+        this.list.unshift(newItem);
         this.render();
     }
 
     removeItem = function(itemIndex) {
-        this.list.splice(itemIndex);
+        this.list.splice(itemIndex, 1);
         this.render();
     }
 
@@ -53,8 +80,8 @@ class TodoList {
         this.render();
     }
 
-    reset = function() {
-        this.list = [];
+    clearCompleted = function() {
+        this.list = this.list.filter(elem => !elem.isCompleted);
         this.render();
     }
 
@@ -63,10 +90,9 @@ class TodoList {
         this.list.forEach(({thingToDo, isCompleted}, i) => 
             html += 
             `<div 
-                class="todo-elem"
+                class="todo-elem ${isCompleted ? "completed" : ""}"
                 id="${i}"
                 draggable="true"
-
                 onClick="todoList.toggleIsCompleted(${i})"
                 ondragover="todoList.dragOver(${i})"
                 ondragstart="todoList.dragStart(${i})"
@@ -74,14 +100,16 @@ class TodoList {
                 >
                     <span class="icon ${isCompleted ? "checked-icon" : "unchecked-icon"}"></span>
                     <p>${thingToDo}</p>
-                    <span class="clear-icon" onClick="removeItem(${i})"></span>
+                    <span class="remove-icon" onClick="todoList.removeItem(${i})"></span>
             </div>`
         )
         listContainer.innerHTML = html;
+        numItemsEl.textContent - `${this.list.length} items left`;
     }
 };
 
 const todoList = new TodoList();
+todoList.render();
 
 themeIcons.forEach(icon => icon.addEventListener("click", todoList.toggleTheme));
 
@@ -89,10 +117,12 @@ input.addEventListener("keyup", function(e) {
     e.preventDefault();
     if ((e.key === 'Enter')) {
         todoList.addItem(e.target.value, false);
-        input.textContent = "";
+        input.value = "";
     }
 });
 
 document.addEventListener("dragover", function(e) {
     e.preventDefault();
 })
+
+clearListEl.addEventListener("click", todoList.clearCompleted)
