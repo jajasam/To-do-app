@@ -1,8 +1,5 @@
 # Frontend Mentor - Todo app
 
-
-# Frontend Mentor - Todo app solution
-
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ### The challenge
@@ -19,10 +16,10 @@ Users should be able to:
 - Toggle light and dark mode
 - Drag and drop to reorder items on the list
 
+
 ### Links
 
 Live preview: https://jajasam.github.io/To-do-app/
-Inspiration: ./design/desktop-preview.jpg
 
 
 ### Built with
